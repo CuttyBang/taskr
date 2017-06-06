@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Taskr</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="">
+  <link rel="apple-touch-icon" href="">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,700" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <script src="./assets/js/asana-min.js"></script>
+<link href="assets/main.css" rel="stylesheet"></head>
+<body>
+  <div id="wrapper">
+    <div id="nav-wrap" class="sidebar sides">
+      <section  class="navigation">
+        <section class="flex-container" id="nav-top">
+          <div class="flex-item" class="logo-image">
+            <img id="asana-logo" src="assets/img/taskr_logo.png" alt="">
+          </div>
+        </section>
+        <div id="ps-menu-wrap" class="flex-container">
+          <section id="ps-menu" class="flex-item">
+            <div class="dropdown">
+              <button id="show-drop" class="dropbtn">Choose Project</button>
+              <div id="ps-drop" class="dropdown-content">
+              </div>
+            </div>
+
+          </section>
+        </div>
+        <section id="nav-main">
+          <nav class="flex-item" id="workspaces">
+            <section class="workspace">
+              <div id="workspace-name">
+              </div>
+              <div class="workspace-projects">
+                <ul id="projectlist">
+
+                </ul>
+              </div>
+            </section>
+          </nav><!--nav-->
+        </section><!--nav-main-->
+      </section><!--navigation-->
+    </div><!--nav wrapper-->
+    <div id="main-content-wrapper" class="sides">
+      <section class="top-line flex-container">
+        <div id="username-wrap" class="one">
+          <h1 id="username"class="flex-item"></h1>
+        </div>
+      </section>
+      <div id="tasks-wrap">
+        <section id="task-results" class="results-container flexxer">
+
+        </section><!--result-container-->
+      </div><!--tasks-wrapper-->
+    </div><!--main-content-wrapper-->
+  </div><!--wrapper-->
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="./assets/js/plates.js" charset="utf-8"></script>
+<script type="text/javascript" src="assets/bundle.js"></script></body>
+</html>

@@ -1,0 +1,388 @@
+
+/*****************
+VARIABLES
+*****************/
+$tiny: 'max-width: 550px';
+$tablet: 'min-width: 768px';
+$laptop: 'min-width: 1024px';
+$desktop: 'min-width: 1200px';
+$text: #8897a3;
+$title: #b3bcc4;
+$hover: #37c597;
+$disabled: transparentize($title, .3);
+$font: 'Quicksand', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif ;
+$bg: #eeeef0;
+$board: #fff;
+$menu: #273347;
+$button: #179dba;
+$ease: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+
+/*****************
+MIXINS
+*****************/
+
+@mixin room ($pads...){
+  padding: $pads !important;
+}
+
+@mixin space ($margins...){
+  margin: $margins !important;
+}
+
+@mixin hover($target) {
+  background-color: darken($target, 20%);
+}
+
+@mixin active($target) {
+  background-color: lighten($target, 20%);
+}
+
+.one {
+  @include room(20px);
+}
+
+.two {
+  @include room(0 20px);
+}
+
+.three {
+  @include room(20px 0);
+}
+
+.room {
+  @include room(30px 0);
+}
+
+.middle {
+  @include space(0 auto);
+}
+
+.left-space {
+  @include space(0 0 0 20px);
+}
+
+.right-space {
+  @include space(0 20px 0 0);
+}
+
+
+/*****************
+GLOBAL
+*****************/
+
+html,
+body {
+  height: 100%;
+  font-size: 14px;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: $bg;
+	font-family: $font;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none !important;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+ul, li {
+  list-style: none;
+}
+
+/*****************
+WRAPPERS
+*****************/
+
+#wrapper {
+  height: 100vh;
+}
+
+#nav-wrap {
+  height: 100%;
+  width: 300px;
+  max-width: 300px;
+  background: $menu;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  z-index:1;
+  overflow:auto;
+}
+
+#main-content-wrapper {
+  margin-left: 300px;
+  height: 100%;
+  overflow-x: scroll;
+}
+
+#topline-wrap {
+  width: 100%;
+  height: 100px;
+}
+
+#tasks-wrap {
+  margin-top: 30px;
+  width: 100%;
+  height: 100%;
+}
+
+/*<==========================================>
+FLEXBOX HELPER CLASSES | ©2017 CUTTY BANG
+<===========================================>*/
+
+.flex-container {
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+	flex-direction: row;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.flex-item {
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.flexxer {
+  display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+	flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.flex-column {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-wrap: nowrap;
+}
+
+.column-item {
+  padding: 5px 0;
+  margin-top: 10px;
+  color: $text;
+  font-weight: 300;
+}
+
+.flex-bigitem {
+   -webkit-flex: 2 0 0;
+   flex: 2 0 0;
+}
+.flex-smallitem {
+   -webkit-flex: 1 0 0;
+   flex: 1 0 0;
+}
+
+.flex-right{
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
+}
+
+
+/*****************
+HEADER/TOP LINE
+*****************/
+#username-wrap {
+  height: 50px;
+  width: 100%;
+  background-color: lighten($bg, 20%);
+  h1 {
+    text-align: center;
+  }
+}
+
+
+/*****************
+NAVIGATON
+*****************/
+
+#asana-logo {
+  max-width: 260px;
+}
+.navigation {
+  height: 100%;
+  padding: 20px;
+	color: lighten($text, 50%);
+}
+
+.spaces {
+  font-weight: 300;
+  font-size: 1.25rem;
+  margin-top: 15px;
+}
+
+.workspace {
+  padding: (30px 0);
+  #workspace-name {
+    border-bottom: 1px solid $disabled;
+    h3 {
+      color: $title;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+  }
+  .workspace-projects {
+    color: lighten($text, 50%);
+    font-weight: 700;
+    li {
+      padding-left: 60px;
+    }
+  }
+}
+
+.content-container{
+  width: auto;
+  height: auto;
+  padding: 20px;
+}
+
+
+/*****************
+MAIN CONTENT
+*****************/
+
+.results-container {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.project-column {
+  max-width: 350px;
+  float: left;
+  clear: none;
+  @include space(0 25px);
+  .column-name {
+    h2 {
+      font-size: 1.75rem;
+      color: $title;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.task-box {
+	width: 300px;
+  height: 150px;
+	border: none;
+	background: $board;
+	@include room(0 20px 20px);
+	&:hover {
+	 -webkit-box-shadow: 3px 3px 22px 0px rgba(68,68,68,0.4);
+   -moz-box-shadow: 3px 3px 22px 0px rgba(68,68,68,0.4);
+   box-shadow: 3px 3px 22px 0px rgba(68,68,68,0.4);
+	}
+  .task-title {
+  	height: auto;
+    overflow: hidden;
+    h3 {
+      padding:0.5rem;
+      margin: 0.5rem 0 0;
+    }
+  }
+  .task-desc{
+    padding: 0.5rem;
+  	width: 80%;
+  	max-height: 50%;
+    overflow: hidden;
+    p {
+      margin: 0;
+    }
+  }
+  .buffer {
+    @include room(5px);
+  }
+}
+
+i.fa-times {
+  font-size: 2rem;
+  float: right;
+  @include room(1rem 0 0);
+  color: #ddd;;
+  &:hover {
+    color: lighten($hover, 20%);
+  }
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: $button;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    .dropbtn {
+      background-color: $button;
+      color: $bg;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      &:hover {
+        background-color: darken($button, 20%);
+      }
+      &:focus {
+        background-color: darken($button, 20%);
+      }
+  }
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  p {
+    color: darken($text, 20%);;
+    padding: 12px 16px;
+    display: block;
+    &:hover {
+      cursor: pointer;
+      background-color: darken(#f9f9f9, 10%);
+      color: $text;
+    }
+  }
+}
+
+.show {
+  display:block;
+}
+
+.hide {
+  display: hidden;
+}
+
+.ps-menu {
+  height: 200px;
+}
